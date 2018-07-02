@@ -2,25 +2,30 @@
   "name": "dockogram",
   "version": "0.0.1",
   "description": "telegram bot, docker DJ",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "precommit": "lint-staged",
-    "setup": "docker build -t docker-builder -f docker_builder.Dockerfile .",
+    "setup": "docker build -t docker-builder -f dockers/docker_builder.Dockerfile .",
+    "start": "nodemon",
     "test": "echo 'What about the tests?'; sleep 2; echo 'Nope!';"
   },
-  "license": "CC0",
+  "license": "CC0-1.0",
   "dependencies": {
+    "dockerfile-utils": "^0.0.10",
     "dotenv": "^6.0.0",
-    "telebot": "^1.2.6",
-    "validate-dockerfile": "^1.8.1"
+    "telebot": "^1.2.6"
   },
   "devDependencies": {
     "husky": "^0.14.3",
     "lint-staged": "^7.2.0",
+    "nodemon": "^1.17.5",
     "prettier": "^1.13.7"
   },
   "lint-staged": {
-    "*.{js}": ["prettier --single-quote --write", "git add"]
+    "*.{js}": [
+      "prettier --single-quote --write",
+      "git add"
+    ]
   },
   "prettier": {
     "singleQuote": true
