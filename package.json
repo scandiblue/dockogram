@@ -6,6 +6,7 @@
   "scripts": {
     "precommit": "lint-staged",
     "setup": "docker build -t docker-builder -f dockers/docker_builder.Dockerfile .",
+    "local": "docker build -t docker-builder -f dockers/local-docker_builder.Dockerfile .",
     "start": "nodemon",
     "test": "echo 'What about the tests?'; sleep 2; echo 'Nope!';"
   },

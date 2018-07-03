@@ -80,7 +80,7 @@ bot.on('/start',
     quest(bot, msg.from.id, 'start')
       .then(inv => {
         if(inv.action === 'dockerNew') {
-          let promise = Promise.resolve({ artifact: { url: '' }, ...inv });
+          let promise = Promise.resolve(inv);
 
           if(inv.artifact && inv.artifact.teleFile) {
             promise = promise
@@ -114,7 +114,7 @@ bot.on('/start',
               }
             )
           )
-          .then(resp => console.log('docker build', resp))
+          .then(resp => bot.sendMessage(msg.from.id, '```' + resp.output + '```', { parseMode: 'Markdown' }))
         }
       })
       .catch(e => console.log(e));

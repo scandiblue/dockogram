@@ -4,8 +4,7 @@ RUN apk add --no-cache git
 
 WORKDIR /app
 
-ARG CACHEBURST=1
-RUN git clone --depth=1 https://github.com/scandiblue/dockogram.git .
+COPY . ./
 
 RUN yarn --production true
 
@@ -16,9 +15,7 @@ RUN apk add --no-cache docker
 
 WORKDIR /app
 
-# copy .env from tar archive sent to dockogram
-COPY ./.env /app/.env
-
+COPY .env /app/.env
 COPY --from=0 /app/src src/
 COPY --from=0 /app/node_modules node_modules/
 

@@ -1,4 +1,6 @@
 .env
+local.env
+
 .idea/
 .vscode/
 .DS_Store

@@ -29,8 +29,8 @@ const build = (file, buildArgs) => {
 
   let buff = [];
 
-  p.stdout.on('data', (data) => buff.splice(15, 15, data));
-  p.stderr.on('data', (data) => buff.splice(15, 15, data));
+  p.stdout.on('data', (data) => buff.push(data));
+  p.stderr.on('data', (data) => buff.push(data));
 
   p.stdin.write(file);
   p.stdin.end();

@@ -61,6 +61,7 @@ const eventBus = {
     }
   ) {
     return new Promise((resolve, reject) => {
+      // TODO: call reject after timeout and mark as garbage
       this.events = [
         ...this.events,
         {
