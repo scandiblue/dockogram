@@ -234,11 +234,11 @@ const renderQuest = (quests, bot, userId, path, prevMsg=null, inventory={}) => {
 }
 
 
-const telequest = (quests) => 
-    (bot, userId, path) =>
-      renderQuest(quests, bot, userId, path);
+const TeleQuest = (quests) => 
+    (bot, userId, path, inventory={}) =>
+      renderQuest(quests, bot, userId, path, null, inventory);
 
 
-telequest.on = (bot) => botSubscription(bot);
+TeleQuest.on = (bot) => botSubscription(bot);
 
-module.exports = telequest;
+module.exports = TeleQuest;

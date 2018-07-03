@@ -13,7 +13,9 @@ FROM mhart/alpine-node:base-8.11.1
 
 WORKDIR /app
 
-COPY --from=0 /app/index.js index.js
+COPY .env /app/.env
+COPY --from=0 /app/src src/
 COPY --from=0 /app/node_modules node_modules/
 
-CMD node index.js
+
+CMD node src/index.js
